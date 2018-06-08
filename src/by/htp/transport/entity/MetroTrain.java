@@ -27,7 +27,7 @@ public class MetroTrain extends Train {
 	public void printVehicle() {
 		System.out.println("Make: " + this.getMake() + " Model Year: " + this.getModelYear() + " Capacity: "
 				+ this.getCapacity() + " Speed: " + this.getSpeed() + " Price: " + this.getPrice()
-				+ " Number of Axles: " + this.getNumOfAxles() + "Number of Wagons: " + this.getNumOfWagons()
+				+ " Number of Axles: " + this.getNumOfAxles() + " Number of Wagons: " + this.getNumOfWagons()
 				+ " Maximum Immersion Depth: " + this.getMaxImmersionDepth());
 
 	}
