@@ -6,7 +6,7 @@ import by.htp.transport.entity.*;
 
 public class TransportLogic {
 
-	ArrayList<Vehicle> arrVehicles;
+	private ArrayList<Vehicle> arrVehicles;
 
 	public TransportLogic() {
 
