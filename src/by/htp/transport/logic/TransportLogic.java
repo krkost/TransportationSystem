@@ -1,60 +1,84 @@
 package by.htp.transport.logic;
 
+import java.util.ArrayList;
+
 import by.htp.transport.entity.*;
 
 public class TransportLogic {
 
-	private Vehicle[] vehicles;
+	ArrayList<Vehicle> arrVehicles;
 
 	public TransportLogic() {
 
 	}
 
-	public TransportLogic(Vehicle[] vehicles) {
-		this.setVehicles(vehicles);
+	public TransportLogic(ArrayList<Vehicle> arrVehicles) {
+		this.setVehicles(arrVehicles);
 	}
 
-	public Vehicle[] getVehicles() {
-		return vehicles;
+	public ArrayList<Vehicle> getVehicles() {
+		return arrVehicles;
 	}
 
-	public void setVehicles(Vehicle[] vehicles) {
-		this.vehicles = vehicles;
+	public void setVehicles(ArrayList<Vehicle> arrVehicles) {
+		this.arrVehicles = arrVehicles;
 	}
 
 	public void printVehicles() {
-		for (Vehicle v : vehicles) {
+		for (Vehicle v : arrVehicles) {
 			v.printVehicle();
 		}
 	}
 
 	public void sortVehiclesByPrice() {
-		Vehicle[] tempVechiles = new Vehicle[this.getVehicles().length];
-		tempVechiles = this.getVehicles();
+		Vehicle[] vehicles = new Vehicle[arrVehicles.size()];
+		for (int i = 0; i < arrVehicles.size(); i++) {
+			vehicles[i] = arrVehicles.get(i);
+		}
+
 		System.out.println("\nVehicles after sorting by Price:");
 		for (int i = 0; i < vehicles.length; i++) {
 			for (int j = 0; j < vehicles.length - 1; j++) {
-				if (tempVechiles[j].getPrice() > tempVechiles[j + 1].getPrice()) {
-					Vehicle tmp = tempVechiles[j];
-					tempVechiles[j] = tempVechiles[j + 1];
-					tempVechiles[j + 1] = tmp;
+				if (vehicles[j].getPrice() > vehicles[j + 1].getPrice()) {
+					Vehicle tmp = vehicles[j];
+					vehicles[j] = vehicles[j + 1];
+					vehicles[j + 1] = tmp;
 				}
 			}
 		}
+		arrVehicles.removeAll(arrVehicles);
+		for (int i = 0; i < vehicles.length; i++) {
+			arrVehicles.add(vehicles[i]);
+		}
+		// for (int i = 0; i < arrVehicles.size(); i++) {
+		// for (int j = 0; j < arrVehicles.size() - 1; j++) {
+		// if (arrVehicles.get(j).getPrice() > arrVehicles.get(j+1).getPrice()) {
+		// Vehicle tmp = arrVehicles.get(j);
+		// arrVehicles.add(j, arrVehicles.get(j+1));
+		// arrVehicles.add(j+1, tmp);
+		// }
+		// }
+		// }
 	}
 
 	public void sortVehiclesBySpeed() {
-		Vehicle[] tempVechiles = new Vehicle[this.getVehicles().length];
-		tempVechiles = this.getVehicles();
+		Vehicle[] vehicles = new Vehicle[arrVehicles.size()];
+		for (int i = 0; i < arrVehicles.size(); i++) {
+			vehicles[i] = arrVehicles.get(i);
+		}
 		System.out.println("\nVehicles after sorting by Speed:");
 		for (int i = 0; i < vehicles.length; i++) {
 			for (int j = 0; j < vehicles.length - 1; j++) {
-				if (tempVechiles[j].getSpeed() > tempVechiles[j + 1].getSpeed()) {
-					Vehicle tmp = tempVechiles[j];
-					tempVechiles[j] = tempVechiles[j + 1];
-					tempVechiles[j + 1] = tmp;
+				if (vehicles[j].getSpeed() > vehicles[j + 1].getSpeed()) {
+					Vehicle tmp = vehicles[j];
+					vehicles[j] = vehicles[j + 1];
+					vehicles[j + 1] = tmp;
 				}
 			}
+		}
+		arrVehicles.removeAll(arrVehicles);
+		for (int i = 0; i < vehicles.length; i++) {
+			arrVehicles.add(vehicles[i]);
 		}
 	}
 
